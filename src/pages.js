@@ -9,5 +9,12 @@ module.exports = [
     config: {
       enablePullDownRefresh: true
     }
+  }, {
+    path: '/pages/complex',
+    config: {
+      enablePullDownRefresh: true
+    }
+  }, {
+    path: '/pages/test'
   }
 ]

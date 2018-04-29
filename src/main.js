@@ -26,6 +26,12 @@ export default {
         }, {
           pagePath: 'pages/zhihu',
           text: '知乎日报'
+        }, {
+          pagePath: 'pages/complex',
+          text: '复杂示例'
+        }, {
+          pagePath: 'pages/test',
+          text: '测试'
         }
       ]
     }

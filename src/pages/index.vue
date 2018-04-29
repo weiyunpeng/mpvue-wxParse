@@ -2,7 +2,7 @@
 .container
   .raw(v-if="show === 'md'") {{readme.raw}}
   .raw(v-if="show === 'html'") {{readme.html}}
-  wxParse(v-else, :content="readme.html", debug)
+  wxParse(v-else-if="readme.html", :content="readme.html", ref="wxParse")
   .turn-btn(@click="turn") 切换
 </template>
 
@@ -38,6 +38,7 @@ export default {
       this.readme.html = marked(res.data)
       wx.stopPullDownRefresh()
       wx.hideLoading()
+      console.log(this.$refs.wxParse.wxParseData)
     },
     turn () {
       const current = this.show

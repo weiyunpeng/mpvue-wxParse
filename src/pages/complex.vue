@@ -27,13 +27,10 @@ export default {
   methods: {
     async getData () {
       wx.showLoading({ title: '加载中' })
-      const list = await this.$request.get('https://news-at.zhihu.com/api/4/news/latest')
-      const article = list.data.stories[0] || {}
-      const detail = await this.$request.get(`https://news-at.zhihu.com/api/4/news/${article.id}`)
-      this.article = detail.data.body
+      const article = await this.$request.get('https://m.dealmoon.com/cn/15-Off-Sitewide-Sephora-8-5/858287.html')
+      this.article = article.data
       wx.stopPullDownRefresh()
       wx.hideLoading()
-      console.log(this.$refs.wxParse.wxParseData)
     }
   }
 }
