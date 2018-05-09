@@ -15,7 +15,7 @@
     "himalaya": "^1.1.0",
     "marked": "^0.3.19",
     "mpvue": "^1.0.9",
-    "mpvue-wxparse": "^0.5.8"
+    "mpvue-wxparse": "^0.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.2",
@@ -46,7 +46,7 @@
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.18.0",
     "mpvue-entry": "^0.3.7",
-    "mpvue-loader": "^1.0.12",
+    "mpvue-loader": "^1.0.13",
     "mpvue-template-compiler": "^1.0.9",
     "mpvue-webpack-target": "^1.0.0",
     "optimize-css-assets-webpack-plugin": "^2.0.0",

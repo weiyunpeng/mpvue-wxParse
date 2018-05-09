@@ -33,8 +33,12 @@ export default {
       this.article = detail.data.body
       wx.stopPullDownRefresh()
       wx.hideLoading()
-      console.log(this.$refs.wxParse.wxParseData)
+      setTimeout(() => console.log(this.$refs.wxParse.nodes), 1000)
     }
   }
 }
 </script>
+
+<style>
+@import url("~mpvue-wxparse/src/wxParse.css");
+</style>

@@ -38,7 +38,7 @@ export default {
       this.readme.html = marked(res.data)
       wx.stopPullDownRefresh()
       wx.hideLoading()
-      console.log(this.$refs.wxParse.wxParseData)
+      console.log(this.$refs.wxParse.nodes)
     },
     turn () {
       const current = this.show
@@ -52,3 +52,7 @@ export default {
   }
 }
 </script>
+
+<style>
+@import url("~mpvue-wxparse/src/wxParse.css");
+</style>
