@@ -7,8 +7,8 @@
 
 > 支持 Html、Markdown 转 Wxml 可视化，修改自: [wxParse](https://github.com/icindy/wxParse)
 
-[![npm package](https://img.shields.io/npm/v/mpvue-wxparse.svg)](https://npmjs.org/package/mpvue-wxparse)
-[![npm downloads](http://img.shields.io/npm/dm/mpvue-wxparse.svg)](https://npmjs.org/package/mpvue-wxparse)
+[![npm package](https://img.shields.io/npm/v/hermes-wxparse.svg)](https://npmjs.org/package/mpvue-wxparse)
+[![npm downloads](http://img.shields.io/npm/dm/hermes-wxparse.svg)](https://npmjs.org/package/mpvue-wxparse)
 
 
 ## 属性
