@@ -23,10 +23,14 @@ function makeMap(str) {
 }
 
 // Block Elements - HTML 5
-const block = makeMap('br,code,address,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video');
+const block = makeMap(
+  'br,code,address,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video'
+);
 
 // Inline Elements - HTML 5
-const inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
+const inline = makeMap(
+  'a,abbr,acronym,applet,b,basefont,bdo,big,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var'
+);
 
 // Elements that you can, intentionally, leave open
 // (and which close themselves)
@@ -49,10 +53,10 @@ function trimHtml(html) {
 function getScreenInfo() {
   const screen = {};
   wx.getSystemInfo({
-    success: (res) => {
+    success: res => {
       screen.width = res.windowWidth;
       screen.height = res.windowHeight;
-    },
+    }
   });
   return screen;
 }
@@ -66,7 +70,7 @@ function html2json(html, customHandler, imageProp, host) {
   const bufArray = [];
   const results = {
     nodes: [],
-    imageUrls: [],
+    imageUrls: []
   };
 
   function Node(tag) {
@@ -139,12 +143,32 @@ function html2json(html, customHandler, imageProp, host) {
         node.classStr += ' inline';
       }
 
+      // 对strike标签进行支持
+      if (node.tag === 'strike') {
+        node.styleStr = 'text-decoration: line-through';
+      }
+
+      // 对i标签进行支持
+      if (node.tag === 'i') {
+        node.styleStr = 'font-style: italic';
+      }
+
+      // 对b标签进行支持
+      if (node.tag === 'b') {
+        node.styleStr = 'font-weight: bolder';
+      }
+
+      // 对u标签进行支持
+      if (node.tag === 'u') {
+        node.styleStr = 'text-decoration: underline';
+      }
+
       // 对img添加额外数据
       if (node.tag === 'img') {
         let imgUrl = node.attr.src;
         imgUrl = wxDiscode.urlToHttpUrl(imgUrl, imageProp.domain);
         Object.assign(node.attr, imageProp, {
-          src: imgUrl || '',
+          src: imgUrl || ''
         });
         if (imgUrl) {
           results.imageUrls.push(imgUrl);
@@ -165,17 +189,18 @@ function html2json(html, customHandler, imageProp, host) {
           'large',
           'x-large',
           'xx-large',
-          '-webkit-xxx-large',
+          '-webkit-xxx-large'
         ];
         const styleAttrs = {
           color: 'color',
           face: 'font-family',
-          size: 'font-size',
+          size: 'font-size'
         };
         if (!node.styleStr) node.styleStr = '';
-        Object.keys(styleAttrs).forEach((key) => {
+        Object.keys(styleAttrs).forEach(key => {
           if (node.attr[key]) {
-            const value = key === 'size' ? fontSize[node.attr[key] - 1] : node.attr[key];
+            const value =
+              key === 'size' ? fontSize[node.attr[key] - 1] : node.attr[key];
             node.styleStr += `${styleAttrs[key]}: ${value};`;
           }
         });
@@ -235,7 +260,7 @@ function html2json(html, customHandler, imageProp, host) {
 
       const node = {
         node: 'text',
-        text,
+        text
       };
 
       if (customHandler.chars) {
@@ -251,7 +276,7 @@ function html2json(html, customHandler, imageProp, host) {
         }
         parent.nodes.push(node);
       }
-    },
+    }
   });
 
   return results;

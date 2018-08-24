@@ -1,13 +1,14 @@
-# mpvue-wxParse 适用于 Mpvue 的微信小程序富文本解析组件
+#  适用于 Mpvue 的微信小程序富文本解析组件
+>fork自 [mpvue-wxParse](https://npmjs.org/package/mpvue-wxparse)
+
+### 主要修改的有：
+* 在图片宽大于手机屏幕宽的时候能完全展示出来，所有图片按比例缩放。
+* 增加对strike，i，b，u标签的支持
 
 > 支持 Html、Markdown 转 Wxml 可视化，修改自: [wxParse](https://github.com/icindy/wxParse)
 
 [![npm package](https://img.shields.io/npm/v/mpvue-wxparse.svg)](https://npmjs.org/package/mpvue-wxparse)
 [![npm downloads](http://img.shields.io/npm/dm/mpvue-wxparse.svg)](https://npmjs.org/package/mpvue-wxparse)
-
-
-## 扫码体验
-![小程序码](./static/qrcode.jpg)
 
 
 ## 属性

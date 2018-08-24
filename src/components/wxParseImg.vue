@@ -1,6 +1,6 @@
 <template>
   <image
-    :mode="node.attr.mode"
+    mode="aspectFill"
     :lazy-load="node.attr.lazyLoad"
     :class="node.classStr"
     :style="newStyleStr || node.styleStr"
@@ -45,7 +45,7 @@ export default {
       const { padding, mode } = this.node.attr;
       const { styleStr } = this.node;
       const imageHeightStyle = mode === 'widthFix' ? '' : `height: ${imageheight}px;`;
-      this.newStyleStr = `${styleStr}; ${imageHeightStyle}; width: ${imageWidth}px; padding: 0 ${+padding}px;`;
+      this.newStyleStr = `${styleStr}; ${imageHeightStyle}; width: ${imageWidth}; padding: 0 ${+padding}px;`;
     },
     // 计算视觉优先的图片宽高
     wxAutoImageCal(originalWidth, originalHeight) {
@@ -63,11 +63,11 @@ export default {
       // 判断按照那种方式进行缩放
       if (originalWidth > windowWidth) {
         // 在图片width大于手机屏幕width时候
-        results.imageWidth = windowWidth;
+        results.imageWidth = 100+'%';
         results.imageheight = windowWidth * (originalHeight / originalWidth);
       } else {
         // 否则展示原来的数据
-        results.imageWidth = originalWidth;
+        results.imageWidth = originalWidth+'px';
         results.imageheight = originalHeight;
       }
 
