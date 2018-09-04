@@ -4,11 +4,12 @@
 ### 主要修改的有：
 * 在图片宽大于手机屏幕宽的时候能完全展示出来，所有图片按比例缩放。
 * 增加对strike，i，b，u标签的支持
+* 过滤掉标签< o:p ></ o:p >
 
 > 支持 Html、Markdown 转 Wxml 可视化，修改自: [wxParse](https://github.com/icindy/wxParse)
 
-[![npm package](https://img.shields.io/npm/v/hermes-wxparse.svg)](https://npmjs.org/package/mpvue-wxparse)
-[![npm downloads](http://img.shields.io/npm/dm/hermes-wxparse.svg)](https://npmjs.org/package/mpvue-wxparse)
+[![npm package](https://img.shields.io/npm/v/hermes-wxparse.svg)](https://npmjs.org/package/hermes-wxparse)
+[![npm downloads](http://img.shields.io/npm/dm/hermes-wxparse.svg)](https://npmjs.org/package/hermes-wxparse)
 
 
 ## 属性

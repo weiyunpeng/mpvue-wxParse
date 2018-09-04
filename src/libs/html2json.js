@@ -47,7 +47,8 @@ function trimHtml(html) {
     .replace(/\/\*.*?\*\//gi, '')
     .replace(/[ ]+</gi, '<')
     .replace(/<script[^]*<\/script>/gi, '')
-    .replace(/<style[^]*<\/style>/gi, '');
+    .replace(/<style[^]*<\/style>/gi, '')
+    .replace(/<o:p><\/o:p>/gi, '');
 }
 
 function getScreenInfo() {
