@@ -5,6 +5,7 @@
 * 在图片宽大于手机屏幕宽的时候能完全展示出来，所有图片按比例缩放。
 * 增加对strike，i，b，u标签的支持
 * 过滤掉标签< o:p ></ o:p >
+* 图片的imageProp属性修改为只能调节右内边距，解决富文本并不是以手机屏幕宽的场景下图片展示不完整的问题
 
 > 支持 Html、Markdown 转 Wxml 可视化，修改自: [wxParse](https://github.com/icindy/wxParse)
 
@@ -36,7 +37,7 @@
 | 名称              | 类型           | 默认值        | 描述                |
 | -----------------|--------------- | ------------- | ------------------ |
 | mode             | String         | 'aspectFit'   | 图片裁剪、缩放的模式 |
-| padding          | Number         | 0             | 图片内边距          |
+| padding          | Number         | 0             | 图片右内边距          |
 | lazyLoad         | Boolean        | false         | 图片懒加载          |
 | domain           | String         | ''            | 图片服务域名        |
 
@@ -52,7 +53,7 @@
 * 安装
 
 ``` bash
-npm i mpvue-wxparse
+npm i hermes-wxparse
 ```
 
 * 使用
@@ -60,12 +61,12 @@ npm i mpvue-wxparse
 ``` vue
 <template>
   <div>
-    <wxParse :content="article" @preview="preview" @navigate="navigate" />
+    <wxParse :content="article" @preview="preview" @navigate="navigate" :imageProp="{ padding : 10 }" />
   </div>
 </template>
 
 <script>
-import wxParse from 'mpvue-wxparse'
+import wxParse from 'hermes-wxparse'
 
 export default {
   components: {

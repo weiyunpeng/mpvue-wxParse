@@ -45,7 +45,7 @@ export default {
       const { padding, mode } = this.node.attr;
       const { styleStr } = this.node;
       const imageHeightStyle = mode === 'widthFix' ? '' : `height: ${imageheight}px;`;
-      this.newStyleStr = `${styleStr}; ${imageHeightStyle}; width: ${imageWidth}; padding: 0 ${+padding}px;`;
+      this.newStyleStr = `${styleStr}; ${imageHeightStyle}; width: ${imageWidth}; padding: 0 ${+padding}px 0 0;`;
     },
     // 计算视觉优先的图片宽高
     wxAutoImageCal(originalWidth, originalHeight) {
